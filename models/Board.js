@@ -12,6 +12,7 @@ const boardSchema = new Schema(
         // the user that created the board
         author: {
             type: Schema.Types.ObjectId
+            ref: "User"
         },
         // the title for the board that will be displayed to users
         title: {

@@ -102,6 +102,7 @@ router.post("/create", (req, res, next) => {
                     // when using nested .thens, you have access to all variables previously assigned in the parent and grandparent thens in the child then which is why we can still call newlyCreatedBoard now.
 
                     // now using the newCreatedBoard variable we will redirect the user to the details page of the newly created board
+                    req.session.user = updatedUser;
                     res.redirect(`/boards/details/${newlyCreatedBoard._id}`);
                 })
                 .catch(err => next(err));
