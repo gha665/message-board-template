@@ -8,6 +8,7 @@ const { Schema, model } = mongoose;
 // notice that when you reference you use the capitalization of the model that it is referencing
 
 const boardSchema = new Schema(
+<<<<<<< HEAD
     {
         // the user that created the board
         author: {
@@ -35,9 +36,38 @@ const boardSchema = new Schema(
                     ref: "User"
                 }
             ]
-        }
+=======
+  {
+    // the user that created the board
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
     },
-    { timestamps: true }
+    // the title for the board that will be displayed to users
+    title: {
+      type: String
+    },
+    // the messages that belong to this board
+    messages: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Message"
+>>>>>>> 23ad496be9681f4a95d63e0390b204042c56fae8
+        }
+      ]
+    },
+    // the users that are following this board
+    followers: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "User"
+        }
+      ]
+    }
+  },
+  { timestamps: true }
 );
 
 const Board = model("Board", boardSchema);
